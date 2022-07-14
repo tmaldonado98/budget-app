@@ -44,35 +44,69 @@ let total = [];
 let arrayX = [];
 
 function confirm(){
-    $('#row').clone(true, true).attr('id', 'row'+ cloneCount++).attr('hidden', false).insertAfter($('[id^=row]:last')).val('');
+    $('.income-amt').clone(true, true).attr('class', 'income-amt'+ cloneCount++).attr('hidden', false).insertAfter($('[class^=income-amt]:last')).val('');
     //$('#x').attr('id', 'x'+ cloneCount++);
     
-    $('[id^=name]:last').append($('.income-name').last().val());    
-    let appendAmt = $('.income-amt').last().val()
-    $('[id^=amt]:last').append(Number(appendAmt).toLocaleString('en'));
+    //stores value of inputs into value of td elements. Then it prints those td 
+    //values onto the html
+    $('[id^=name]:last').val($('.income-name').last().val());   
+    $('[id^=name]:last').html($('[id^=name]:last').val());
+    
+    //Same thing as above ^^
+    let lastAmt = Number($('.income-amt').last().val().toLocaleString('en'));
+    $('[id^=amt]:last').val(lastAmt);
+    $('[id^=amt]:last').html('$' + $('[id^=amt]:last').val())
+    console.log($('[id^=amt]:last').val())
 
+    //modifying array
     total.push(Number($('.income-amt').val()));
     console.log(total);
 
+    //sum had to be declared within the function so that it could reset to 0
+    //upon each confirm. This is so that the new total sum can be added starting
+    //from 0, instead of adding the sum onto an already started operation.
     let sum = 0;
     for (let i = 0; i < total.length; i++) {
         sum += total[i];
          console.log(sum);
+        $('#display-gross').val(sum.toLocaleString('en')); 
         $('#display-gross').html('$' + sum.toLocaleString('en'));
         
     }
-   
-    $('#x').on('click', function(){
-        console.log(sum);
 
-        //sum = sum - Number($(this).closest($('#amt')).val());
-        $(this).closest('tr').remove();
-        $('#display-gross').html('$' + sum.toLocaleString('en'));
-    });
 
     $('.income-name').val('');
     $('.income-amt').val('');
 }
+
+$('#amt').focusout(()=> {
+    //let lastAmt = Number($('.income-amt').last().val().toLocaleString('en'));
+   // $(this).replaceWith($(this).val())
+    //(lastAmt);
+   total.push(Number($('#amt').val()));
+    console.log(total);
+    
+  //  total = [];
+  //  console.log(total);
+//   $(this).focusout(()=> {
+
+
+// })
+})
+
+
+
+$('#x').on('click', function(){
+    console.log($(this).closest($('#amt')).value);
+    //sum = sum - Number($(this).closest($('#amt')).val());
+    $(this).closest('tr').remove();
+    let removedVal = $(this).closest('[id^=amt]').val();
+    let recalculation = Number($('#display-gross').val()) - Number(removedVal);//Number($(this).closest($('#amt').val()));
+    //$('#display-gross').html('$' + sum);
+    $('#display-gross').html('$' + Number(recalculation).toLocaleString('en'));
+    console.log(Number($('#display-gross').val()));
+});
+
 
 $('#confirm').click(()=> {
     
@@ -84,7 +118,9 @@ $('#confirm').click(()=> {
 });
 
 $('.income-amt').keypress ((key)=> {
-    if (key.keyCode == 13) {
+    if (key.keyCode == 13 && $('.income-amt').val() == 0) {
+       return false; 
+} else if (key.keyCode == 13) {
         confirm();
 }
 });

@@ -20,25 +20,25 @@
                 placeholder="Source Of Income">
             <strong>$</strong><input inputmode="numeric" name="gross-income" 
                 placeholder="Income Amount" class="income-amt" id="inc1">
-            <!--<button id="remove-row">X</button>-->
+            <button id="remove-row">X</button>
         </div>
         <!--<span class="attn" hidden>Please Enter Numbers Only</span>-->
         <br>
         <button id="confirm">Confirm</button>
-       <!-- <p>Add A New Source Of Income <button id="add-source-inc">+</button></p>
-       -->
+       <p>Add A New Source Of Income <button id="add-source-inc">+</button></p>
+       
         <br><br><br>
-        <table id="confirmed-table">
+        <!--<table id="confirmed-table">
             <tr>
                 <th>Name:</th>
                 <th>Amount:</th>
             </tr>
-            <tr id="row" hidden>
+            <tr draggable="true" id="row" hidden>
                 <td id="name"></td>
-                <td id="amt">$</td>
+                <td contenteditable="true" id="amt"></td>
                 <td><button id="x">X</button></td>
             </tr>
-        </table>
+        </table>-->
     
 
         <button id="clear-inc">Clear All Income Fields</button>
