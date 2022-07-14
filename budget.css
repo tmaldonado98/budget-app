@@ -1,0 +1,16 @@
+#container-g-e {
+  display: flex;
+  justify-content: space-evenly;
+  /*
+      #name, #amt {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }*/
+}
+#container-g-e #container-gross {
+  grid-template-columns: 1fr;
+}
+#container-g-e #confirmed-table, #container-g-e #name, #container-g-e #amt {
+  border: 5px solid black;
+}/*# sourceMappingURL=budget.css.map */

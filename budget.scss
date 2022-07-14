@@ -1,0 +1,18 @@
+#container-g-e {
+    display: flex;
+    justify-content: space-evenly;
+
+    #container-gross {
+        grid-template-columns: 1fr;
+    }
+
+    #confirmed-table, #name, #amt {
+        border: 5px solid black;
+    }
+/*
+    #name, #amt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }*/
+}
