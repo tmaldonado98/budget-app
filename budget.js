@@ -11,6 +11,8 @@ $(document).ready(()=> {
 
     
     
+$('.income-name').css('text-transform', 'capitalize');
+$('.expense-name').css('text-transform', 'capitalize');
 
 
 let cloneCount = 2;
@@ -35,16 +37,82 @@ $('#add-source-exp').click(()=> {
 $('.income-amt').keypress((key)=>{
     if(key.charCode < 48 || key.charCode > 57){
         return false;
-    } 
+    }    
+});
+ /*if ($('.income-amt').val() >= 1) {
+        $('#remove-row').show().slice(0);
+        //removeAttr('hidden')
+    }*/ 
+
+function addRow() {
+   if ($('[class^=income-amt]:last').val() == 0) {
+        return false;
+   } else {
+    $('.input-grid-income').first().clone(true, true).insertAfter($('[class^=input-grid-income]:last')).find('input').val('');   
+}
+   //.attr('class', 'input-grid-income'+ cloneCount++)
+
+};
+
+$('#add-source-inc').click(()=> {
+   addRow();
+})
+
+// $('.income-name').keypress(()=>{
+// })
+
+$('.income-amt').keypress ((key)=> {
+        if (key.keyCode == 13 && $('.income-amt').val() == 0) {
+           return false; 
+    } else if (key.keyCode == 13) {
+            addRow();
+    }
 });
 
+let totalAmount = function(){
+        let sum = 0
 
+        $('.income-amt').each(function(){
+            let amtVal = $(this).val().replace(',' , '');
+            
+            if (amtVal != 0) {
+                sum += parseFloat(amtVal);
+            }
+        })
+        $('#display-gross').val('$' + sum.toLocaleString('en-US'));
+    };
 
-let total = [];
-let arrayX = [];
+$('.income-amt').keyup(()=> {
+    totalAmount();        
+});
 
+//To remove rows
+$('#remove-row').click(()=>{
+    $('.input-grid-income:last').remove();
+});
+
+$('#clear-inc').click(()=> {
+    // $('.income-amt').val(undefined);
+    // $('.income-name').val(undefined);
+    $('.income-name').val(undefined);
+    $('.income-amt').val(undefined);
+    $('.input-grid-income').slice(1).remove();
+//   $('.input-grid-income').add().insertAfter($('#gross-inc-h'));
+//    $('.input-grid-income').first().clone(true).insertAfter($('.input-grid-income').last()).find('input').val('');
+//    $('.input-grid-income').add().insertAfter($('.h'));
+
+    // $('#display-gross').html($('#display-gross').val());
+    // $('[id^=amt]').html($('[id^=amt]').val());
+    // $('[id^=name]').html($('[id^=name]').val());
+    // $('[id^=row]').slice(1).remove();
+    // total = [];
+
+});
+
+//let total = [];
+
+/*
 function confirm(){
-    $('.income-amt').clone(true, true).attr('class', 'income-amt'+ cloneCount++).attr('hidden', false).insertAfter($('[class^=income-amt]:last')).val('');
     //$('#x').attr('id', 'x'+ cloneCount++);
     
     //stores value of inputs into value of td elements. Then it prints those td 
@@ -77,7 +145,7 @@ function confirm(){
 
     $('.income-name').val('');
     $('.income-amt').val('');
-}
+}*/
 
 $('#amt').focusout(()=> {
     //let lastAmt = Number($('.income-amt').last().val().toLocaleString('en'));
@@ -117,82 +185,6 @@ $('#confirm').click(()=> {
     }
 });
 
-$('.income-amt').keypress ((key)=> {
-    if (key.keyCode == 13 && $('.income-amt').val() == 0) {
-       return false; 
-} else if (key.keyCode == 13) {
-        confirm();
-}
-});
 
 
 
-
-
-/*
-$('[id^=inc]').last().on("keydown", (()=> {
-    $('#display-gross').html('');
-
-}));
-
-($('[id^=inc]')).on("keyup", (()=> {
-    $('#display-gross').val($('#display-gross').val() + Number($('[id^=inc]').last().val()));
-    $('#display-gross').html('$'+ $('#display-gross').val());
-}));
-
-    /////////
-    arrayInc.push($('input[name=gross-income]').last().val());
-    console.log(arrayInc);
-
-       
-    //totalValInc += jQuery.globalEval($(arrayInc).val());  
-
-   // nextVal = arrayInc[($.inArray(arrayInc.indexOf(0)) + 1)]
-
-   /* for (let i = 0; i < arrayInc.length; i++) {
-        
-        //totalValInc = Number(arrayInc);
-        totalValInc += $(arrayInc[i]);
-       // totalValInc += $('input[name=gross-income]').last().val() + Number($(nextVal));
-    }*/   
-    
-    /*let totalValInc = $('#display-gross').val(Number($('#display-gross').val()) + Number($('.income-amt').last().val()));
-    if (Number($('.income-amt').last().val()) === undefined || '' || 0) {
-        $('#display-gross').val().replaceWith(Number($('#display-gross').val()) - Number($('.income-amt').last().val()));
-        
-    }*/
- /*   $('#display-gross').val(Number($('#display-gross').val()) + Number($('.income-amt').last().val()));
-    $('#display-gross').html('$'+ $('#display-gross').val());
-    console.log($('#display-gross').val());
-*/
-   // if ($('.income-amt').on("input propertychange")) {
-  //      $('#display-gross').val() - $(this).val();
-  //  }    
-
-//});*/
-/*$('.income-amt').on("input propertychange", function() {
-        console.log($(this).val());
-        //$('#display-gross').val(Number($('#display-gross').val()) + Number($('.income-amt').last().val()));
-        $('#display-gross').html('$'+ $('#display-gross').val() - $(this).val());
-        //#display-gross
-     });
-*/ 
-
-$('#clear-inc').click(()=> {
-    // $('.income-amt').val(undefined);
-    // $('.income-name').val(undefined);
-    $('#display-gross').val(undefined);
-    $('[id^=name]').val(undefined);
-    $('[id^=amt]').val(undefined);
-//    $('.input-grid-income').slice(1).remove();
-//   $('.input-grid-income').add().insertAfter($('#gross-inc-h'));
-//    $('.input-grid-income').first().clone(true).insertAfter($('.input-grid-income').last()).find('input').val('');
-//    $('.input-grid-income').add().insertAfter($('.h'));
-
-    $('#display-gross').html($('#display-gross').val());
-    $('[id^=amt]').html($('[id^=amt]').val());
-    $('[id^=name]').html($('[id^=name]').val());
-    $('[id^=row]').slice(1).remove();
-    total = [];
-
-})
