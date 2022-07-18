@@ -13,4 +13,12 @@
 }
 #container-g-e #confirmed-table, #container-g-e #name, #container-g-e #amt {
   border: 5px solid black;
+}
+
+#container-net {
+  width: 75%;
+  margin: 4rem auto;
+}
+#container-net #h2 {
+  text-align: center;
 }/*# sourceMappingURL=budget.css.map */

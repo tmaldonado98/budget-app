@@ -17,64 +17,46 @@
  
 <div id="container-g-e">
     <div id="container-gross">
-        <h2 class="h" id="gross-inc-h">Gross Income</h2>
+        <h2 class="h2">Gross Income</h2>
         <div class="input-grid-income">
             <input type="text" name="income-name" class="income-name" 
                 placeholder="Source Of Income">
             <strong>$</strong><input inputmode="numeric" name="gross-income" 
                 placeholder="Income Amount" class="income-amt">
         </div>
-        <!--<span class="attn" hidden>Please Enter Numbers Only</span>-->
         <br>
-        <!--<button id="confirm">Confirm</button>-->
        <p>Add A New Source Of Income <button id="add-source-inc">+</button></p>
-       
         <br><br><br>
-        <!--<table id="confirmed-table">
-            <tr>
-                <th>Name:</th>
-                <th>Amount:</th>
-            </tr>
-            <tr draggable="true" id="row" hidden>
-                <td id="name"></td>
-                <td contenteditable="true" id="amt"></td>
-                <td><button id="x">X</button></td>
-            </tr>
-        </table>-->
-    
-        <button id="remove-row">Remove Previous Field</button><br>
+
+        <button id="remove-row-inc">Remove Previous Field</button>
         <button id="clear-inc">Clear All Income Fields</button><br>
-        <label for="display gross" class="h"><strong>Total Gross Income:</strong></label>
-        <input type="text" readonly id="display-gross"></input>
+        <h3 class="h3">Total Gross Income:</h3>
+        <strong>$</strong><input type="text" readonly id="display-gross"></input>
     </div>
 <br><br><br>
 
     <div id="container-expenses">
-        <h2 class="h">Expenses</h2>
-
+        <h2 class="h2">Expenses</h2>
         <div class="input-grid-expenses">
-            <input type="text" name="expense-name" class="expense-name" placeholder="Expense Name">
-            <strong>$</strong><input inputmode="numeric" name="expenses" id="exp1" 
-                placeholder="Expense Amount">
+            <input type="text" name="exp-name" class="exp-name" placeholder="Expense Name">
+            <strong>$</strong><input inputmode="numeric" name="expenses"
+                class="exp-amt" placeholder="Expense Amount">
         </div>
-        
-        <p>Add A New Expense <button id="add-source-exp">-</button></p>
-        <div class="">
-            <div id="">
+        <br>
+        <p>Add A New Expense <button id="add-source-exp">+</button></p>
+        <br><br><br>
 
-            </div>
-            <div id="">
-
-            </div>
-        </div>
+        <button id="remove-row-exp">Remove Previous Field</button>
         <button id="clear-exp">Clear All Expenses</button>
-        <h2 class="h">Total Expenses:</h2>
-        <strong><h3 id="display-expenses"></h3></strong>
-    </div>
+        <h3 class="h3">Total Expenses:</h3>
+        <strong>$</strong><input type="text" readonly id="display-exp"></input>
+        </div>
 </div>
 
-
-
+<div id="container-net">
+    <h2 class="h2">Total Net Income:</h2>
+    <input type="text" readonly id="display-net"></input>
+</div>
 
 
 <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
