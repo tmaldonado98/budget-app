@@ -1,6 +1,6 @@
 $(document).ready(()=> {
     $('input').val('');
-});
+
  
 $('.income-name').css('text-transform', 'capitalize');
 $('.exp-name').css('text-transform', 'capitalize');
@@ -44,7 +44,8 @@ let totalAmountInc = function(){
         })
         incTotal = sum;
         console.log(incTotal);
-        $('#display-gross').val(sum.toLocaleString('en-US'));
+        $('#display-gross').html((sum.toLocaleString('en-US')));
+            
     };
 
 $('.income-amt').keyup(()=> {
@@ -112,7 +113,7 @@ let totalAmountExp = function(){
         })
         expTotal = sum;
         console.log(expTotal);
-        $('#display-exp').val(sum.toLocaleString('en-US'));
+        $('#display-exp').html(sum.toLocaleString('en-US'));
     };
 
 $('.exp-amt').keyup(()=> {
@@ -148,7 +149,7 @@ let totalAmountNet = function(){
         if (amtVal != undefined || 0) {
             op += parseFloat(amtVal);
         }
-    $('#display-net').val('$' + op.toLocaleString('en-US'));
+    $('#display-net').html('$' + op.toLocaleString('en-US'));
 };
 
 $('.exp-amt').keyup(()=> {
@@ -167,3 +168,5 @@ $('#remove-row-exp, #remove-row-inc, #add-source-exp, #add-source-inc, #clear-in
     totalAmountNet();        
     console.log($('#display-gross').val(), $('#display-exp').val())
     });
+
+});

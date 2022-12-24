@@ -1,13 +1,33 @@
 #container-g-e {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   /*
       #name, #amt {
           display: flex;
           align-items: center;
           justify-content: center;
       }*/
+  width: 80%;
+  margin: 2rem auto;
 }
+.container {
+  padding: 1.5rem;
+}
+
+#container-gross{
+  border-right: 3px black double;
+}
+
+.input-grid-income, .input-grid-expenses{
+  margin-bottom: 1rem;
+  background-color: bisque;
+}
+
+#container-expenses{
+  border-left: 3px black double;
+  text-align: right;
+}
+
 #container-g-e #container-gross {
   grid-template-columns: 1fr;
 }
