@@ -5,6 +5,25 @@ $(document).ready(()=> {
 $('.income-name').css('text-transform', 'capitalize');
 $('.exp-name').css('text-transform', 'capitalize');
 
+$('.print').click(()=>{
+    print();    
+});
+
+$('#show-curr').click(()=>{
+    // $('#container-curr').css('visibility', 'visible');
+    // $('#container-curr').css('opacity', '1');
+    // $('#container-curr').css('height', 'auto')
+    $('#container-curr').addClass('show-container-curr');
+    $('.curr').css('visibility', 'visible');
+});
+
+$('#hide').click(()=>{
+    // $('#container-curr').css('visibility', 'hidden');
+    // $('#container-curr').css('opacity', '0');
+    // $('#container-curr').css('height', '0')
+    $('#container-curr').removeClass('show-container-curr');
+});
+
 //Invalidates letter characters for gross income field
 $('.income-amt').keypress((key)=>{
     if(key.charCode < 48 || key.charCode > 57){

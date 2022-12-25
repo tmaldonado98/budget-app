@@ -4,53 +4,127 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget App</title>
-    <link rel="stylesheet" href="budget.css">
+    <title>My Budget Calculator</title>
+    <link rel="icon" href="https://img.icons8.com/fluency/96/null/stack-of-coins.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="budget.css"> 
+    <script src="https://kit.fontawesome.com/602ec316c2.js" crossorigin="anonymous"></script>
     <!-- <script src="../../jquery.js"></script> -->
    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 -->
 </head>
+
 <body>
- 
+    <nav>
+    <div id=container-print>
+        <i class="fa-solid fa-print fa-xl print" title="Print Page"></i>
+        <p class="print" title="Print Page">Print</p>
+        <i class="fa-solid fa-question" title="To save as a PDF file click on 'Print' button, press on 'Destination' menu list, and select 'Save to PDF'."></i>
+        
+    </div>
+    <div id="container-sel-control">
+        <p id="hide">Hide Selection</p>
+        <p id="show-curr">Currency Selection</p>
+    </div>
+</nav>
+
+    <h1>My Budget Calculator</h1>
+    
+    
+    <section id="main">
+    <!-- <hr> -->
+
+    <!-- <div id="container-sel-control">
+        <p id="show-curr">Currency Selection</p>
+        <p id="hide">Hide Selection</p>
+    </div> -->
+
+    <div id="container-curr">
+        <div id="usd" class="curr" title="US Dollar"><span>&#36;</span></div>
+        <div id="cnr" class="curr" title="Chinese Renminbi"><span>CN&#165;</span></div>
+        <div id="brp" class="curr" title="British Pound"><span>&#163;</span></div>
+        
+        <div id="ir" class="curr" title="Indian Rupee"><span>&#8377;</span></div>
+        <div id="thb" class="curr" title="Thai Baht"><span>&#3647;</span></div>
+        
+        <div id="rr" class="curr" title="Russian Ruble"><span>&#8381;</span></div>
+        <div id="jpy" class="curr" title="Japanese Yuan"><span>&#165;</span></div>
+        <div id="vd" class="curr" title="Vietnamese Dong"><span>&#8363;</span></div>
+        <div id="tl" class="curr" title="Turkish Lira"><span>&#8378;</span></div>
+        
+        <div id="cbr" class="curr" title="Cambodian Riel"><span>&#6107;</span></div>
+        <div id="eu" class="curr" title="Euro"><span>&#8364;</span></div>
+        <div id="bcoin" class="curr" title="Bitcoin"><span>&#8383;</span></div>
+        <div id="pakr" class="curr" title="Pakistani Rupee"><span>&#8360;</span></div>
+<!--         
+        <div id="" class="curr" title=""><span></span></div>
+        <div id="" class="curr" title=""><span></span></div>
+        <div id="" class="curr" title=""><span></span></div> 
+    
+-->
+
+    </div>
+<hr>
 <div id="container-g-e">
     <div class="container" id="container-gross">
         <h2 class="h2">Gross Income</h2>
-        <ul>
-            <div class="input-grid-income"><li>
-                <input autocapitalize="words" autofocus type="text" name="income-name" class="income-name" 
-                    placeholder="Source Of Income">
-                <strong>$</strong><input inputmode="numeric" name="gross-income" 
-                    placeholder="Income Amount" class="income-amt">
-            </div></li>
-        </ul>
+        <div class="list">
+            <ul>
+                <div class="input-grid-income"><li>
+                    <input autocapitalize="words" autofocus type="text" name="income-name" class="income-name" 
+                        placeholder="Source Of Income">
+                    <strong>$</strong><input inputmode="numeric" name="gross-income" 
+                        placeholder="Income Amount" class="income-amt">
+                </div></li>
+            </ul>
+        </div>
 <br>
-       <p>Add A New Source Of Income <button id="add-source-inc">+</button></p>
-        <br><br><br>
+    <div id="container-btns">
+        <div id="container-rem-clear">
+            <div class="btn" id="remove-row-inc">Remove Previous Field</div>
+            <div class="btn" id="clear-inc">Clear All Income Fields</div>
+        </div>
 
-        <button id="remove-row-inc">Remove Previous Field</button>
-        <button id="clear-inc">Clear All Income Fields</button><br>
+        <div id="container-add-src">
+            <div id="add-source-inc">
+                <p>New Income Field</p>
+            </div>
+        </div>
+    </div>
+        
         <h3 class="h3">Total Gross Income:</h3>
         <strong>$</strong><span id="display-gross"></span>
     </div>
 
+<!--                        -->
+
     <div class="container" id="container-expenses">
         <h2 class="h2">Expenses</h2>
-        <ul>
-            <div class="input-grid-expenses"><li>
-                <input autocapitalize="words" type="text" name="exp-name" class="exp-name" placeholder="Expense Name">
-                <strong>$</strong><input inputmode="numeric" name="expenses"
-                    class="exp-amt" placeholder="Expense Amount">
-            </div></li>
-        </ul>
+        <div class="list">
+            <ul>
+                <div class="input-grid-expenses"><li>
+                    <input autocapitalize="words" type="text" name="exp-name" class="exp-name" placeholder="Expense Name">
+                    <strong>$</strong><input inputmode="numeric" name="expenses"
+                        class="exp-amt" placeholder="Expense Amount">
+                </div></li>
+            </ul>
+        </div>
         <br>
-        <p>Add A New Expense <button id="add-source-exp">+</button></p>
-        <br><br><br>
 
-        <button id="remove-row-exp">Remove Previous Field</button>
-        <button id="clear-exp">Clear All Expenses</button>
+        <div id="container-btns">
+            <div id="container-rem-clear">
+                <div class="btn" id="remove-row-exp">Remove Previous Field</div>
+                <div class="btn" id="clear-exp">Clear All Expense Fields</div>
+            </div>
+
+            <div id="container-add-src">
+                <div id="add-source-exp">
+                    <p>New Expense Field</p>
+                </div>
+            </div>
+        </div>
         <h3 class="h3">Total Expenses:</h3>
         <strong>$</strong><span id="display-exp"></span>
-        </div>
+    </div>
 </div>
 
 <div id="container-net">
@@ -59,6 +133,14 @@
 </div>
 
 
+</section>
+<footer>
+    <div id="contact">
+        <div class='nav-btns'><a href="https://github.com/tmaldonado98" target="_blank" rel="noopener noreferrer" title="My Github Profile">Github</a></div>
+        <div class='nav-btns'><a href="mailto:tmaldonadotrs@gmail.com" target="_blank" rel="noopener noreferrer" title="Send me an email!">Email</a></div>
+        <div class='nav-btns'><p class="share" title="Share your list"><i class="fa-regular fa-xl fa-share-from-square share"></i> Share</p></div>
+    </div>
+</footer>
 <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 -->
