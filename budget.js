@@ -14,7 +14,7 @@ $('#show-curr').click(()=>{
     // $('#container-curr').css('opacity', '1');
     // $('#container-curr').css('height', 'auto')
     $('#container-curr').addClass('show-container-curr');
-    $('.curr').css('visibility', 'visible');
+    $('#hide').css('opacity', '1');
 });
 
 $('#hide').click(()=>{
@@ -22,6 +22,7 @@ $('#hide').click(()=>{
     // $('#container-curr').css('opacity', '0');
     // $('#container-curr').css('height', '0')
     $('#container-curr').removeClass('show-container-curr');
+    $('#hide').css('opacity', '0');
 });
 
 //Invalidates letter characters for gross income field
@@ -168,7 +169,7 @@ let totalAmountNet = function(){
         if (amtVal != undefined || 0) {
             op += parseFloat(amtVal);
         }
-    $('#display-net').html('$' + op.toLocaleString('en-US'));
+    $('#display-net').html(op.toLocaleString('en-US'));
 };
 
 $('.exp-amt').keyup(()=> {
@@ -189,3 +190,79 @@ $('#remove-row-exp, #remove-row-inc, #add-source-exp, #add-source-inc, #clear-in
     });
 
 });
+
+/////// CURRENCY SELECTION AND REPLACEMENT
+
+$('.curr').on('click', function(){
+    $('#container-curr').removeClass('show-container-curr');
+    $('#hide').css('opacity', '0');
+    
+});
+
+    $('#usd').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    });    
+
+    $('#cnr').click(function(){
+        let sym = $(this).text();
+        // CN&#165;
+        $('.symbol').html(sym);
+    });    
+
+    $('#brp').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    });    
+
+    $('#ir').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    });    
+
+    $('#thb').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    });    
+
+    $('#rr').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#jpy').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#vd').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#tl').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#cbr').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#eu').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#bcoin').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    $('#pakr').click(function(){
+        let sym = $(this).text();
+        $('.symbol').html(sym);
+    }); 
+
+    

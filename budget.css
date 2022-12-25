@@ -5,6 +5,17 @@ body{
   color: whitesmoke;
 }
 
+.symbol, .display{
+  font-size: 1.5rem;
+}
+.display{
+
+}
+
+#display-net{
+  font-size: 1.5rem;
+}
+
 nav{
   background-color: black;
 
@@ -54,6 +65,10 @@ nav{
   cursor: pointer;
 }
 
+#hide{
+  opacity: 0  ;
+}
+
 #show-curr:hover, #hide:hover{
   background-color: rgba(245, 245, 245, 0.2);
 }
@@ -85,14 +100,12 @@ hr{
   opacity: 0;
   visibility: hidden;
   height: 0;
-  /* display: none; */
-  /* visibility: hidden; */
 }
 
 .show-container-curr{
   padding: 1rem 0;
   transition: 400ms;
-  visibility: visible;
+  visibility: visible !important;
   opacity: 1 !important;
   height: auto !important;
 }
@@ -141,6 +154,7 @@ hr{
 }
 .container {
   padding: 1.5rem;
+  width: 50%;
 }
 
 #container-gross{
@@ -178,6 +192,9 @@ input[type=text], input[inputmode=numeric]{
   font-family: inherit;
   font-size: 1.15rem;
   width: 13rem;
+
+  border: none;
+  border-bottom: double;
 }
 
 
