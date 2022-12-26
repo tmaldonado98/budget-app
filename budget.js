@@ -9,22 +9,6 @@ $('.print').click(()=>{
     print();    
 });
 
-$('#show-curr').click(()=>{
-    // $('#container-curr').css('visibility', 'visible');
-    // $('#container-curr').css('opacity', '1');
-    // $('#container-curr').css('height', 'auto')
-    $('#container-curr').addClass('show-container-curr');
-    $('#hide').css('opacity', '1');
-});
-
-$('#hide').click(()=>{
-    // $('#container-curr').css('visibility', 'hidden');
-    // $('#container-curr').css('opacity', '0');
-    // $('#container-curr').css('height', '0')
-    $('#container-curr').removeClass('show-container-curr');
-    $('#hide').css('opacity', '0');
-});
-
 //Invalidates letter characters for gross income field
 $('.income-amt').keypress((key)=>{
     if(key.charCode < 48 || key.charCode > 57){
@@ -193,9 +177,25 @@ $('#remove-row-exp, #remove-row-inc, #add-source-exp, #add-source-inc, #clear-in
 
 /////// CURRENCY SELECTION AND REPLACEMENT
 
+$('#show-curr').click(()=>{
+    // $('#container-curr').css('visibility', 'visible');
+    // $('#container-curr').css('opacity', '1');
+    // $('#container-curr').css('height', 'auto')
+    $('#container-curr').toggleClass('show-container-curr');
+    // $('#hide').css('opacity', '1');
+});
+/*
+$('#hide').click(()=>{
+    // $('#container-curr').css('visibility', 'hidden');
+    // $('#container-curr').css('opacity', '0');
+    // $('#container-curr').css('height', '0')
+    $('#container-curr').removeClass('show-container-curr');
+    // $('#hide').css('opacity', '0');
+});*/
+
 $('.curr').on('click', function(){
     $('#container-curr').removeClass('show-container-curr');
-    $('#hide').css('opacity', '0');
+    // $('#hide').css('opacity', '0');
     
 });
 
@@ -266,7 +266,7 @@ $('.curr').on('click', function(){
     }); 
 
 
-    
+
     $('.share').click(()=>{
         if (navigator.share) {
             navigator.share({

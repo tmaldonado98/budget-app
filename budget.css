@@ -43,7 +43,11 @@ nav{
 
 .print, .share {
   cursor: pointer;
-  color: antiquewhite;
+  color: whitesmoke;
+}
+
+.share{
+  visibility: hidden;
 }
 
 #contact{
@@ -71,7 +75,7 @@ i{
   gap: 1rem;
   align-self: center;
 }
-#show-curr, #hide{
+#show-curr{
   border: 1px solid whitesmoke;
   padding: 0.5rem;
   width: fit-content;
@@ -82,11 +86,7 @@ i{
   cursor: pointer;
 }
 
-#hide{
-  opacity: 0  ;
-}
-
-#show-curr:hover, #hide:hover{
+#show-curr:hover{
   background-color: rgba(245, 245, 245, 0.2);
 }
 
@@ -105,12 +105,11 @@ hr{
 #container-curr{
   display: flex;
   justify-content: center;
-  gap: 4rem;
   flex-wrap: wrap;
-  /* padding: 1rem 0; */
   background-color: black;
 
-  width: 80%;
+  gap: 1rem;
+  width: 100%;
   margin: auto;
   transition: 400ms;
   
@@ -141,9 +140,17 @@ hr{
   box-shadow: 0px 0px 10px 5px rgba(245, 245, 245, 0.4);
 }
 
+.container-symbol{
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  text-align: center;
+  align-items: center;
+}
 
-
-
+sub{
+  font-size: 15px;
+}
 
 #main{
   width: 85%;
@@ -253,6 +260,7 @@ input[type=text], input[inputmode=numeric]{
 .btn{
   transition: 400ms;
   cursor: pointer;
+  text-align: center;
 }
 
 .btn:hover{
