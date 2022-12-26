@@ -166,6 +166,10 @@ sub{
   overflow-y: auto;
 }
 
+.container-amt{
+  display: inline-block;
+}
+
 #container-g-e {
   display: flex;
   justify-content: space-evenly;
