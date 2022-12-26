@@ -3,6 +3,8 @@ body{
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: rgba(0, 0, 0, 0.85);
   color: whitesmoke;
+
+  background-image: url(https://images.unsplash.com/photo-1585924775990-bd3f24bbc72e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
 }
 
 .symbol, .display{
@@ -10,10 +12,6 @@ body{
 }
 .display{
 
-}
-
-#display-net{
-  font-size: 1.5rem;
 }
 
 nav{
@@ -46,6 +44,25 @@ nav{
 .print, .share {
   cursor: pointer;
   color: antiquewhite;
+}
+
+#contact{
+  display: flex;
+}
+
+#print-contact{
+  display: flex;
+  width: 35vw;
+  justify-content: space-between;
+}
+
+i{
+  color: white;
+}
+
+.nav-btns{
+  margin: 5px;
+  align-self: center;
 }
 
 #container-sel-control{
@@ -178,13 +195,6 @@ hr{
   border: 5px solid black;
 }
 
-#container-net {
-  width: 75%;
-  margin: 4rem auto;
-}
-#container-net #h2 {
-  text-align: center;
-}/*# sourceMappingURL=budget.css.map */
 
 input[type=text], input[inputmode=numeric]{
   background-color: rgba(245, 245, 220, 0);
@@ -242,6 +252,7 @@ input[type=text], input[inputmode=numeric]{
 
 .btn{
   transition: 400ms;
+  cursor: pointer;
 }
 
 .btn:hover{
@@ -250,4 +261,38 @@ input[type=text], input[inputmode=numeric]{
 
 .h2{
   text-align: center;
+}
+
+
+#container-net {
+  width: 75%;
+  margin: 4rem auto 0 auto;
+  padding-bottom: 2rem;
+}
+
+#container-net #h2 {
+  text-align: center;
+}/*# sourceMappingURL=budget.css.map */
+
+#net{
+  text-align: center;
+}
+
+#net span{
+  font-size: 2rem;
+
+}
+
+footer {
+  height: 2.5rem;
+  background-color: black;
+  overflow: hidden;
+}
+
+footer p {
+  color: antiquewhite;
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: center;
+  padding: 0.5rem 0;
 }

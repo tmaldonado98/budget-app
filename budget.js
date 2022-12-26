@@ -265,4 +265,16 @@ $('.curr').on('click', function(){
         $('.symbol').html(sym);
     }); 
 
+
     
+    $('.share').click(()=>{
+        if (navigator.share) {
+            navigator.share({
+                title: 'My Budget',
+                url: 'https://tmaldonado98.github.io/budget-app/'
+            })
+        }
+    });
+    
+    
+
