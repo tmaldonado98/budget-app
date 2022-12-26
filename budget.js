@@ -17,15 +17,25 @@ $('.income-amt').keypress((key)=>{
 });
 
 function addRowInc() {
+
    if ($('[class^=income-amt]:last').val() == 0) {
         return false;
    } else {
-    $('.input-grid-income').last().clone(true, true).insertAfter($('[class^=input-grid-income]:last')).find('input').val('');   
+       $('.input-grid-income').last().clone(true, true).insertAfter($('.input-grid-income').last()).find('input').val('');   
+        $('.income-name').last().focus();
     }
 };
 
+$('.income-name', '.income-amt').on('keypress', function(e){
+    e.preventDefault;
+    if (e.keyCode === 13) {
+        addRowInc();
+    }
+})
+
 $('#add-source-inc').click(()=> {
    addRowInc();
+
 })
 
 $('.income-amt').keypress ((key)=> {
@@ -86,7 +96,9 @@ function addRowExp() {
    if ($('[class^=exp-amt]:last').val() == 0) {
         return false;
    } else {
-    $('.input-grid-expenses').last().clone(true, true).insertAfter($('[class^=input-grid-expenses]:last')).find('input').val('');   
+    // $('.input-grid-expenses').last().clone(true, true).insertAfter($('[class^=input-grid-expenses]:last')).find('input').val('');   
+    $('.input-grid-expenses').last().clone(true, true).insertAfter($('.input-grid-expenses').last()).find('input').val('');   
+    $('.exp-name').last().focus();
     }
 };
 
