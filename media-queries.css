@@ -28,6 +28,10 @@
         border-radius: 10px;
     }
 
+    #container-gross{
+        border-right: none;
+      }
+
 }
 
 @media screen and (max-width: 650px) {
